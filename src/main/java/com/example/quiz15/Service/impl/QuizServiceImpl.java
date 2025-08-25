@@ -282,7 +282,6 @@ public class QuizServiceImpl implements QuizService {
 		    ResCodeMessage.SUCCESS.getMessage(), list);
 		 };
 		//return null;
-		 
 		 ////	//return null;	//return null;	//return null;	//return null;
 		}
 
