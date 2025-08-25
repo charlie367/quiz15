@@ -21,6 +21,7 @@ import com.example.quiz15.entity.Quiz;
 import com.example.quiz15.vo.BasicRes;
 import com.example.quiz15.vo.QuizCreateReq;
 import com.example.quiz15.vo.QuizUpdateReq;
+import com.example.quiz15.vo.SearchReq;
 import com.example.quiz15.vo.SearchRes;
 
 import jakarta.validation.Valid;
@@ -62,6 +63,11 @@ public class QuizServiceController {
 	  @DeleteMapping("/quiz/delete/{id}")
 	  public BasicRes delete(@PathVariable("id") int id) {
 	      return quizService.deleteQuiz(id);
+	  }
+	  
+	  @PostMapping("/quiz/search")
+	  public SearchRes search(@RequestBody SearchReq req) {
+		  return quizService.search(req);
 	  }
 	
 }
