@@ -14,7 +14,7 @@ public interface QuizService {
 	
 	public SearchRes getAllQuizs();
 	
-	  BasicRes deleteQuiz(int quizId);
+	 public  BasicRes deleteQuiz(int quizId);
 	  
 	 public SearchRes search(SearchReq req);
 	 }

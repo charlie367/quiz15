@@ -10,6 +10,18 @@ public class SearchReq {
 	
 	private LocalDate endDate;
 
+	private boolean Published;
+	
+
+
+	public boolean isGetAllPublished() {
+		return Published;
+	}
+
+	public void setGetAllPublished(boolean getAllPublished) {
+		this.Published = getAllPublished;
+	}
+
 	public String getQuizName() {
 		return quizName;
 	}
