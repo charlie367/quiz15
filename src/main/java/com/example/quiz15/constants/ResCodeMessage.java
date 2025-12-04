@@ -14,8 +14,16 @@ public enum ResCodeMessage {
 	OPTIONS_INSUFFICIENT(400, "Options Insufficient!!"),//
 	TEXT_HAS_OPTIONS_ERROR(400, "Text Has Options Error!!"),//
 	QUIZ_UPDATE_FAILED(400, "Quiz Update Failed!!"),//
-	INTERNAL_SERVER_ERROR(400,"Internal Server Error");
-
+	INTERNAL_SERVER_ERROR(400,"Internal Server Error"),//
+	QUIZ_ID_ERROR(400,"Quiz Id Error"),//
+	QUIZ_CANNOT_BE_EDITED(400,"Quiz Cannot Be Edited"),//
+	ANSWER_REQUIRED(400,"Answer Required"),//
+	QUESTION_TYPE_IS_SINGLE(400, "Question Type is Single!!"),//
+	OPTION_ANSWER_MISMATCH(400, "Option Answer Mismatch"),//
+	EMAIL_DUPLICATED(400, "Email Duplicated!!"),//
+	OBJECTMAPPER_PROCESSING_ERROR(400, "Objectmapper Processing"),//
+	PLEASE_LOGIN_FIRST(400, "Please Login First");
+	
 	private int code;
 
 	private String message;

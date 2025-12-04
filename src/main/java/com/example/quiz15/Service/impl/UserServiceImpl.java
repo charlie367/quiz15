@@ -14,6 +14,7 @@ import com.example.quiz15.vo.AddInfoReq;
 import com.example.quiz15.vo.BasicRes;
 import com.example.quiz15.vo.LoginReq;
 import com.example.quiz15.vo.LoginRes;
+import com.example.quiz15.vo.UserProfileRes;
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -79,6 +80,30 @@ public class UserServiceImpl implements UserService {
 
 	
 
-	
+	@Override
+	public UserProfileRes getUserProfile(String email) {
+	    // 從 DAO 撈資料
+	    User user = userDao.getByEmail(email);  // ← 建議統一用這個
+	    
+	    if (user == null) {
+	        // 找不到使用者，回傳錯誤訊息
+	        return new UserProfileRes(
+	            ResCodeMessage.NOT_FOUND.getCode(),
+	            ResCodeMessage.NOT_FOUND.getMessage(),
+	            null, null, email, null
+	        );
+	    }
+
+	    // 找到了，回傳成功訊息 + 使用者資料
+	    return new UserProfileRes(
+	        ResCodeMessage.SUCCESS.getCode(),
+	        ResCodeMessage.SUCCESS.getMessage(),
+	        user.getName(),
+	        user.getPhone(),
+	        user.getEmail(),
+	        user.getAge()
+	    );
+	}
+
 	
 }

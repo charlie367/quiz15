@@ -32,7 +32,8 @@ public class Quiz {
 	@Column(name = "is_published")
 	private boolean published;
 	
-	@Transient
+	
+	@Transient//這個欄位不會被 Hibernate（JPA）自動儲存到資料庫，也不會從資料庫自動載入」。
     private List<Question> questionList;
 
    

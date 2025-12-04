@@ -31,6 +31,7 @@ public class QuizCreateReq  {
 	private boolean published;
 	// 同一張問卷可能會有多個問題
 	@Valid // 嵌套驗證: QuestionVo 也有使用 Validation 驗證，所以要加上 @Valid 才會使其生效
+	//別只檢查 questionList 有沒有東西，裡面的每一題（每一個 QuestionVo）也要進一步做驗證！
 	@NotEmpty(message = ContantsMessage.QUESTION_VO_ERROR)
 	private List<QuestionVo> questionList;
 

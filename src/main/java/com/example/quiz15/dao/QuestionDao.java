@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.quiz15.entity.Question;
 import com.example.quiz15.entity.QuestionId;
+import com.example.quiz15.entity.Quiz;
 
 import jakarta.transaction.Transactional;
 
@@ -17,6 +18,7 @@ import jakarta.transaction.Transactional;
 public interface QuestionDao extends JpaRepository<Question, QuestionId> {
 
 	List<Question> findByQuizId(int quizId); 
+	//自動派生查詢方法
 	
 	@Modifying
 	@Transactional
@@ -30,7 +32,11 @@ public interface QuestionDao extends JpaRepository<Question, QuestionId> {
 	@Query(value = "delete from question where quiz_id = ?1", nativeQuery = true)
 	public void deleteByQuizId(int quizId);
 
+	@Query(value = "select * from question where quiz_id = ?1", nativeQuery = true)
+	public List<Question> getQuestionsByQuizId(int quizId);
  
+	
+	
 }
 	
 	

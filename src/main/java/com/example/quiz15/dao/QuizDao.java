@@ -52,4 +52,13 @@ public interface QuizDao extends JpaRepository<Quiz, Integer> {
 	@Query(value = "select * from quiz where name like %?1% and start_date >= ?2" //
 			+ " and end_date <= ?3 and is_published is true" , nativeQuery = true)
 	public List<Quiz> getAllPublished(String name, LocalDate startDate, LocalDate endDate);
+
+	@Query(value = "select * from"
+			+ " quiz where id = ?1", nativeQuery = true)
+	public Quiz getById(int Id); 
+	
+	 // 判斷該問卷是否已發布以及當下
+	@Query(value = "select count(id) from quiz where id = ?1 and ?2 >= start_date "
+            + "and ?2 <= end_date and is_published = false", nativeQuery = true)
+	public int selectCountById(int id, LocalDate now);
 }
